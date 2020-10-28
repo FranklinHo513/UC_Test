@@ -1,6 +1,7 @@
 import requests
 import json
 import pandas as pd
+import matplotlib.pyplot as plt
 
 url = 'https://data.cdc.gov.tw/en/download?resourceid=a59483fd-4b09-42bd-af15-3c12' \
       '3147d7e3&dataurl=https://od.cdc.gov.tw/eic/Day_Confirmation_Age_County_Gender_19CoV.json'
@@ -12,3 +13,8 @@ df.rename(columns={'個案研判日': 'Report date', '是否為境外移入': 'I
 useful_df = df[['Report date', 'Import']]
 useful_df.replace(to_replace='是', value='Yes', inplace=True)
 useful_df.replace(to_replace='否', value='No', inplace=True)
+case = useful_df.groupby('Report date').count()
+print(useful_df)
+print(case)
+case.plot()
+plt.show()
