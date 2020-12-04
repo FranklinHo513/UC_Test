@@ -20,9 +20,9 @@ useful_df = useful_df.groupby('Report date').aggregate({'Imported case': 'sum', 
 useful_df.rename(columns={'Total Local Case': 'Local Case', 'Imported case': 'Imported Case'}, inplace=True)
 useful_df.reset_index(inplace=True)
 print(useful_df)
-useful_df = useful_df[useful_df['Report date'] >= '2020/07/01']
-useful_df = useful_df[useful_df['Report date'] <= '2020/08/31']
+#useful_df = useful_df[useful_df['Report date'] >= '2020/07/01']
+#useful_df = useful_df[useful_df['Report date'] <= '2020/08/31']
 useful_df.plot(x='Report date', title='Hong Kong')
-plt.axvline(x='2020/07/22', c='r')
+#plt.axvline(x='2020/07/22', c='r')
 plt.ylim(-0.5, 150)
 plt.show()

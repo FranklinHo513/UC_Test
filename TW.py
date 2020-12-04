@@ -21,11 +21,14 @@ useful_df = useful_df.groupby('Report date').aggregate({'No': 'sum', 'Yes': 'sum
 useful_df.rename(columns={'No': 'Local Case', 'Yes': 'Imported Case'}, inplace=True)
 useful_df.reset_index(inplace=True)
 useful_df = useful_df.reindex(columns=['Report date', 'Imported Case', 'Local Case'])
-#useful_df = useful_df[useful_df['Report date'] >= '2020/01/22']
-useful_df = useful_df[useful_df['Report date'] <= '2020/03/30']
+#useful_df = useful_df[useful_df['Report date'] >= '2020/03/01']
+#useful_df = useful_df[useful_df['Report date'] <= '2020/04/30']
 print(useful_df)
 useful_df.plot(x='Report date', title='Taiwan')
-plt.axvline(x='2020/02/06', c='r')
-#plt.axvline(x='2020/03/25', c='orange')
+#plt.axvline(x='2020/03/20', c='r', label='20/3', ymax=1)
+#plt.axvline(x='2020/04/03', c='m', label='3/4', ymax=0.8)
+#plt.axvline(x='2020/04/10', c='c', label='10/4', ymax=0.8)
+#plt.axvline(x='2020/04/24', c='black', label='24/4', ymax=0.8)
+#plt.legend()
 plt.ylim(-0.5, 25)
 plt.show()
